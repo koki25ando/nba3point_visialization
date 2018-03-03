@@ -28,7 +28,8 @@ names(tp)
 ```{r}
 library(dplyr)
 library(ggplot2)
-tp %>% 
+library(plotly)
+p <- tp %>% 
   ggplot(aes(x=Games, y=TPM, colour=Name)) + 
   geom_step(direction="vh") + 
   labs(title="Top10 Best 3-point records in a single season",
@@ -38,5 +39,6 @@ tp %>%
   scale_color_hue(labels=
                     c("Stephen Curry(2013-14)"="10th : Stephen Curry(2013-14)"))
 
+ggplotly(p)
 ```
 
