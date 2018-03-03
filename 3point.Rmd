@@ -1,0 +1,36 @@
+---
+title: "NBA 3point record visialization"
+author: "Koki Ando"
+date: "3/2/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(data.table)
+tp <- fread("https://s3-ap-southeast-2.amazonaws.com/playerinfomation/3pointrecord.csv", data.table = FALSE)
+names(tp)[16] <- paste("TPM")
+names(tp)
+```
+
+
+```{r}
+library(dplyr)
+library(ggplot2)
+tp %>% 
+  ggplot(aes(x=Games, y=TPM, colour=Name)) + 
+  geom_step(direction="vh") + 
+  labs(title="Top10 Best 3-point records in a single season",
+       x="Games", y="3points made in a single season") + 
+  scale_x_continuous(breaks=c(0,20,40,65,80), 
+                     labels=c("0","20th","40th","60th","80th")) +
+  scale_color_hue(
+    labels=c("Jason Richardson(2007-08)"="10th : Jason Richardson(2007-08)"))
+
+```
+
