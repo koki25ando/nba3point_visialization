@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(data.table)
-tp <- fread("https://s3-ap-southeast-2.amazonaws.com/playerinfomation/3pointrecord.csv", data.table = FALSE)
+tp <- fread("https://s3-ap-southeast-2.amazonaws.com/playerinfomation/3pointrecordadded.csv", data.table = FALSE)
 names(tp)[16] <- paste("TPM")
 names(tp)
 ```
@@ -34,9 +34,9 @@ tp %>%
   labs(title="Top10 Best 3-point records in a single season",
        x="Games", y="3points made in a single season") + 
   scale_x_continuous(breaks=c(0,20,40,65,80), 
-                     labels=c("0","20th","40th","60th","80th")) +
-  scale_color_hue(
-    labels=c("Jason Richardson(2007-08)"="10th : Jason Richardson(2007-08)"))
+                     labels=c("0","20th","40th","60th","80th")) + 
+  scale_color_hue(labels=
+                    c("Stephen Curry(2013-14)"="10th : Stephen Curry(2013-14)"))
 
 ```
 
