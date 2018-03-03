@@ -2,7 +2,13 @@
 title: "NBA 3point record visialization"
 author: "Koki Ando"
 date: "3/2/2018"
-output: html_document
+output: 
+    html_document:
+        code_folding: show
+        theme: cosmo
+        highlight: tango
+        # toc: TRUE
+        # toc_float: TRUE
 ---
 
 ```{r setup, include=FALSE}
