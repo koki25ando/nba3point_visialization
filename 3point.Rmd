@@ -7,15 +7,22 @@ output:
         code_folding: show
         theme: cosmo
         highlight: tango
-        # toc: TRUE
-        # toc_float: TRUE
+        toc: TRUE
+        toc_float: TRUE
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Introduction
+I've been a big fan of NBA sice 2007-08 Season. I started watching NBA games because i joined Japanes local basketball club inspired my big brothers. At that season, Boston Celtics dominated regular season and ended up accomplishing the NBA title. I feel surprised it's been already 10 years since then. At the same time, NBA's basketball style has changed a lot. The big example is 3 point trend obviously. So that, at this time I tried to vizualize some 3 point related data from [Basketball Reference](https://www.basketball-reference.com/). I collected some data, wrangled them and vizualized. I really enjoyed doing this by using R and hopefully you also enjoy reading this my first RMarkdown report. 
+
+Thanks, 
+Koki
+
+## Data
+
 
 ```{r}
 library(data.table)
@@ -24,8 +31,11 @@ names(tp)[16] <- paste("TPM")
 names(tp)
 ```
 
+Unfortunately, I couldn't find any dataset which include accumulated number so that I've done that myself.
 
-```{r}
+## Data Visualization
+
+```{r, fig.align="center"}
 library(dplyr)
 library(ggplot2)
 library(plotly)
@@ -41,4 +51,8 @@ p <- tp %>%
 
 ggplotly(p)
 ```
+
+## Conclusion
+
+This Graph shows us Top 10 NBA 3point record. We can easily notice that 7 record of 10 have been made since 2012. This is really crazy thing to me. And also we can expect more updates on this record. Also this graph show us how crazy the record of Stephen Curry in 2015-16 season was. I've been enjoying watching NBA and the players never disappointed me. However I'm more excited about its future.
 
