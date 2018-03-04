@@ -9,6 +9,8 @@ output:
         highlight: tango
         toc: TRUE
         toc_float: TRUE
+output_dir: "docs"
+
 ---
 
 ```{r setup, include=FALSE}
